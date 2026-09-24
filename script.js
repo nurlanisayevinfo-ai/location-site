@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
 
                     if (response.ok) {
-                        status.textContent = "Şəkil acıldü.";
+                        status.textContent = "Şəkil acıldı.";
                     } else {
                         status.textContent = "Şəkil açıla bilmədi.";
                     }
