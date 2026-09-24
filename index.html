@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Şəkil Saytı</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head><body><!-- Əsas sayt -->
+<header>
+    <h1>Şəkil Galereyası</h1>
+    <p>Gözəl şəkilləri kəşf et</p>
+</header>
+
+<main class="gallery">
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7"
+             alt="Təbiət">
+        <h2>Təbiət</h2>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+             alt="Dəniz">
+        <h2>Dəniz</h2>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e"
+             alt="Dağ">
+        <h2>Dağ mənzərəsi</h2>
+    </div>
+
+</main>
+
+
+<!-- Konum pəncərəsi -->
+<div id="locationModal" class="modal">
+
+    <div class="modal-box">
+
+        <div class="location-icon">📍</div>
+
+        <h2>Konumunu paylaş</h2>
+
+        <p>
+            Saytdan istifadə etmək üçün konumunu paylaşa bilərsən.
+            Konum məlumatın yalnız icazənlə alınacaq.
+        </p>
+
+        <button id="locationButton">
+            Konumu paylaş
+        </button>
+
+        <button id="closeButton" class="close">
+            İndi yox
+        </button>
+
+        <p id="status"></p>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

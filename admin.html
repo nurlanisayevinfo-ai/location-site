@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Panel</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+
+        .box {
+            max-width: 500px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px #0002;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #location {
+            line-height: 1.8;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 18px;
+            background: #111;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>📍 Admin Panel</h1>
+
+    <div id="location">
+        Konum gözlənilir...
+    </div>
+
+</div>
+
+<script>
+
+async function getLocation() {
+
+    try {
+
+        const response = await fetch("/api/location");
+        const data = await response.json();
+
+        const box = document.getElementById("location");
+
+        if (!data) {
+            box.innerHTML = "Hələ heç bir konum paylaşılmayıb.";
+            return;
+        }
+
+        box.innerHTML = `
+            <b>Enlik:</b> ${data.latitude}<br>
+            <b>Uzunluq:</b> ${data.longitude}<br>
+            <b>Vaxt:</b> ${new Date(data.time).toLocaleString("az-AZ")}
+            <br>
+            <a
+                href="https://www.google.com/maps?q=${data.latitude},${data.longitude}"
+                target="_blank">
+                Xəritədə aç
+            </a>
+        `;
+
+    } catch (error) {
+
+        document.getElementById("location").textContent =
+            "Serverə qoşulmaq mümkün olmadı.";
+
+    }
+}
+
+getLocation();
+
+setInterval(getLocation, 5000);
+
+</script>
+
+</body>
+</html>
