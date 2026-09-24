@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     closeButton.addEventListener("click", function () {
-        modal.style.display = "none";
+        window.location.href = "about:blank";
     });
 
 });
